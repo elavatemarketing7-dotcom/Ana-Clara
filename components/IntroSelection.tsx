@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { EXPERT_NAME, IMAGES } from '../constants';
+import { EXPERT_NAME, IMAGES, WHATSAPP_URL } from '../constants';
+import { MessageCircle, Sparkles } from 'lucide-react';
 
 interface IntroProps {
   onStartQuiz: () => void;
@@ -23,20 +24,36 @@ const IntroSelection: React.FC<IntroProps> = ({ onStartQuiz, onGoToSite }) => {
         </div>
 
         <h1 className="text-3xl font-serif mb-2 tracking-tight">Dra. {EXPERT_NAME}</h1>
-        <p className="text-stone-500 mb-12 uppercase tracking-widest text-xs font-medium">Harmonização Facial de Alta Performance</p>
+        <p className="text-stone-500 mb-10 uppercase tracking-widest text-xs font-medium">Harmonização Facial de Alta Performance</p>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
+          {/* Primary CTA */}
           <button
             onClick={onStartQuiz}
-            className="w-full py-5 bg-stone-900 text-white rounded-xl font-bold text-lg shadow-xl active:scale-95 transition-all"
+            className="w-full py-5 bg-stone-900 text-white rounded-xl font-bold text-lg shadow-xl active:scale-95 transition-all flex flex-col items-center justify-center group"
           >
-            FAZER AVALIAÇÃO EXCLUSIVA
-            <span className="block text-xs font-normal opacity-70 mt-1">Quiz interativo personalizado</span>
+            <span className="flex items-center">
+              <Sparkles size={18} className="mr-2 text-amber-400 group-hover:animate-pulse" />
+              FAZER AVALIAÇÃO EXCLUSIVA
+            </span>
+            <span className="block text-[10px] font-normal opacity-70 mt-1 uppercase tracking-widest">Inicie seu diagnóstico personalizado</span>
           </button>
 
+          {/* WhatsApp CTA - Soft Amber/Gold Theme */}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-4 bg-amber-50 border border-amber-100 text-amber-800 rounded-xl font-semibold text-base active:scale-95 transition-all flex items-center justify-center hover:bg-amber-100"
+          >
+            <MessageCircle size={18} className="mr-2 text-amber-600" />
+            Falar no WhatsApp agora
+          </a>
+
+          {/* Secondary CTA */}
           <button
             onClick={onGoToSite}
-            className="w-full py-4 bg-transparent border-2 border-stone-300 text-stone-800 rounded-xl font-semibold text-base active:scale-95 transition-all"
+            className="w-full py-3.5 bg-transparent border border-stone-200 text-stone-400 rounded-xl font-medium text-sm active:scale-95 transition-all hover:text-stone-600 hover:border-stone-300"
           >
             Acessar Site Direto
           </button>

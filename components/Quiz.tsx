@@ -69,27 +69,27 @@ const Quiz: React.FC<QuizProps> = ({ onFinish, onSkip }) => {
         <h2 className="text-[20vw] font-serif whitespace-nowrap">{EXPERT_NAME}</h2>
       </div>
 
-      <div className="relative w-full max-w-md p-6 min-h-screen flex flex-col justify-between">
-        <div className="pt-8">
-           {/* Floating expert photo */}
-          <div className="flex justify-center mb-6">
+      <div className="relative w-full max-w-md px-6 py-4 md:p-6 min-h-screen flex flex-col justify-between">
+        <div className="pt-2 md:pt-8">
+           {/* Floating expert photo - Compacted on mobile */}
+          <div className="flex justify-center mb-4 md:mb-6">
             <div className="relative">
-              <div className="w-20 h-20 rounded-2xl overflow-hidden border-2 border-stone-800 rotate-3 shadow-lg">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden border-2 border-stone-800 rotate-3 shadow-lg">
                 <img src={IMAGES.hero} alt="" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-2 -right-2 bg-stone-900 text-white p-1 rounded-full border-2 border-white">
-                <Heart size={12} fill="white" />
+              <div className="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 bg-stone-900 text-white p-1 rounded-full border-2 border-white">
+                <Heart size={10} className="md:w-3 md:h-3" fill="white" />
               </div>
             </div>
           </div>
 
-          <div className="text-center mb-8">
-            <h3 className="text-xl font-serif font-semibold text-stone-800">Avaliação Personalizada</h3>
-            <p className="text-stone-500 text-sm italic">Sinta-se segura(o). Você está em boas mãos.</p>
+          <div className="text-center mb-4 md:mb-8">
+            <h3 className="text-lg md:text-xl font-serif font-semibold text-stone-800">Avaliação Personalizada</h3>
+            <p className="text-stone-500 text-xs md:text-sm italic">Sinta-se segura(o). Você está em boas mãos.</p>
           </div>
 
           {/* Progress Bar */}
-          <div className="w-full bg-stone-200 h-1.5 rounded-full mb-8 overflow-hidden">
+          <div className="w-full bg-stone-200 h-1 md:h-1.5 rounded-full mb-6 md:mb-8 overflow-hidden">
             <div 
               className="bg-stone-800 h-full transition-all duration-300 ease-out"
               style={{ width: `${progressPercentage}%` }}
@@ -98,31 +98,31 @@ const Quiz: React.FC<QuizProps> = ({ onFinish, onSkip }) => {
 
           {!analyzing ? (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <h4 className="text-xl font-semibold mb-6 text-stone-900">{QUESTIONS[step].text}</h4>
-              <div className="grid gap-4">
+              <h4 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-stone-900 leading-tight">{QUESTIONS[step].text}</h4>
+              <div className="grid gap-3 md:gap-4">
                 {QUESTIONS[step].options.map((option, idx) => (
                   <button
                     key={idx}
                     onClick={handleNext}
-                    className="w-full p-5 text-left bg-white border border-stone-200 rounded-2xl shadow-sm hover:border-stone-800 active:bg-stone-50 transition-all flex justify-between items-center group"
+                    className="w-full p-4 md:p-5 text-left bg-white border border-stone-200 rounded-xl md:rounded-2xl shadow-sm hover:border-stone-800 active:bg-stone-50 transition-all flex justify-between items-center group"
                   >
-                    <span className="text-stone-700 font-medium">{option}</span>
-                    <ChevronRight className="text-stone-300 group-hover:text-stone-800" size={20} />
+                    <span className="text-stone-700 text-sm md:text-base font-medium">{option}</span>
+                    <ChevronRight className="text-stone-300 group-hover:text-stone-800 shrink-0" size={18} />
                   </button>
                 ))}
               </div>
             </div>
           ) : (
-            <div className="text-center py-12 animate-in fade-in zoom-in duration-500">
-              <Sparkles className="mx-auto text-amber-500 mb-6 animate-pulse" size={48} />
-              <h4 className="text-2xl font-serif mb-2">Analisando Perfil...</h4>
-              <p className="text-stone-500">Verificando compatibilidade com o método exclusivo da Dra. Ana Clara</p>
-              <div className="mt-8 flex justify-center">
+            <div className="text-center py-8 md:py-12 animate-in fade-in zoom-in duration-500">
+              <Sparkles className="mx-auto text-amber-500 mb-4 md:mb-6 animate-pulse" size={40} />
+              <h4 className="text-xl md:text-2xl font-serif mb-2">Analisando Perfil...</h4>
+              <p className="text-stone-500 text-sm px-4">Verificando compatibilidade com o método exclusivo da Dra. Ana Clara</p>
+              <div className="mt-6 md:mt-8 flex justify-center">
                 <div className="flex space-x-2">
                   {[0, 1, 2].map(i => (
                     <div 
                       key={i} 
-                      className="w-3 h-3 bg-stone-800 rounded-full animate-bounce" 
+                      className="w-2.5 h-2.5 bg-stone-800 rounded-full animate-bounce" 
                       style={{ animationDelay: `${i * 0.15}s` }}
                     />
                   ))}
@@ -132,10 +132,10 @@ const Quiz: React.FC<QuizProps> = ({ onFinish, onSkip }) => {
           )}
         </div>
 
-        <div className="pb-8">
+        <div className="pb-4 md:pb-8">
           <button 
             onClick={onSkip}
-            className="w-full text-stone-400 text-sm font-medium hover:text-stone-800 transition-colors"
+            className="w-full text-stone-400 text-xs md:text-sm font-medium hover:text-stone-800 transition-colors py-2"
           >
             Pular e ir para o site direto
           </button>
