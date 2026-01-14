@@ -242,7 +242,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* BASTIDORES (AUTO SLIDING) */}
-      <section className="py-24 px-0 bg-stone-100 overflow-hidden">
+      <section id="bastidores" className="py-24 px-0 bg-stone-100 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 mb-12 text-center">
           <h2 className="text-4xl font-serif mb-4">Bastidores e Consultório</h2>
           <p className="text-stone-500 italic">Harmonização Facial de Coração 💚</p>
